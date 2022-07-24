@@ -33,7 +33,7 @@ while(True):
     # Capture frame-by-frame
     ret, frame = cap.read()
 
-    image = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+    image = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
     #dog = model.detectMultiScale(gray, 1.3, 5)
     pilImage = Image.fromarray(image)
 
