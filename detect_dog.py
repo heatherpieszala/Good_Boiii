@@ -46,7 +46,8 @@ while(True):
     # Build multipart form and post request
     m = MultipartEncoder(fields={'file': ("imageToUpload", buffered.getvalue(), "image/jpeg")})
 
-    response = requests.post("https://detect.roboflow.com/dog_labels/3?api_key=Vw7zyUhuuduWIuv9krcB", data=m, headers={'Content-Type': m.content_type})
+    response = requests.post("https://detect.roboflow.com/dog_labels/2?api_key=Vw7zyUhuuduWIuv9krcB", data=m, headers={'Content-Type': m.content_type})
+
 
     print(response)
     print(response.json())
