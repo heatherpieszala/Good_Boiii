@@ -2,7 +2,8 @@ import paho.mqtt.client as mqtt
 
 LOCAL_MQTT_HOST = "mosquitto-service"
 LOCAL_MQTT_PORT = 1883
-MQTT_TOPIC = "test_topic"
+LOCAL_MQTT_TOPIC = 'dogdetect/images'
+REMOTE_MQTT_TOPIC = "dogcapture/images"
 REMOTE_MQTT_HOST = "172.31.7.32"
 REMOTE_MQTT_PORT = 30018
 
@@ -17,7 +18,8 @@ def on_connect_remote(remote_client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     print("msg received", str(msg.payload.decode("utf-8")))
     msg = msg.payload
-    remote_client.publish(MQTT_TOPIC,payload=msg, qos=0, retain = False)
+    remote_client.publish(REMOTE_MQTT_TOPIC,payload=msg, qos=1, retain = False)
+    print('re-published to cloud!')
 
 #client object for local and remote
 print("Local Client")
