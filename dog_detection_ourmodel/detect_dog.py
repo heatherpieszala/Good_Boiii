@@ -85,14 +85,14 @@ while(True):
 	  
     #if amount_found != 0:
       
-    cv.imshow('frame',image)
+    #cv.imshow('frame',image)
     #for (x,y,w,h) in dogs:
         #cv.rectangle(image,(x,y),(x+w,y+h),(416,0,0),2)
-    #dog = image[y:y+h, x:x+w]
+        #dog = image[y:y+h, x:x+w]
     rc,png = cv.imencode('.png', image)
     msg = png.tobytes()
     client.publish(MQTT_TOPIC, msg, qos=1, retain = False)
-    print('dog', dog)
+    #print('dog', dog)
     print('message sent')
         
         
