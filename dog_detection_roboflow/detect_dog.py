@@ -24,9 +24,6 @@ MQTT_PORT=1883
 MQTT_TOPIC = "dogdetect/images"
 
 
-#face_cascade = cv.CascadeClassifier('best.pt')
-#model = DetectMultiBackend('best.pt')
-
 cap = cv.VideoCapture(0)
 
 #from client connections pyton -steves internet guide
@@ -91,25 +88,22 @@ while(True):
     # Build multipart form and post request
     m = MultipartEncoder(fields={'file': ("imageToUpload", buffered.getvalue(), "image/jpeg")})
 
+    #roboflow response
     response = requests.post("https://detect.roboflow.com/dog_labels/2?api_key=Vw7zyUhuuduWIuv9krcB", data=m, headers={'Content-Type': m.content_type})
 
 
     print(response)
     print(response.json())
-        
-    #for (x,y,w,h) in dog:
-        #cv.rectangle(image,(x,y),(x+w,y+h),(255,0,0),2)
-        #dog = gray[y:y+h, x:x+w]
-
-    rc,png = cv.imencode('.png', image)
-    msg = png.tobytes()
-    client.publish(MQTT_TOPIC, msg, qos=1, retain = False)
-        #print('face', dog)
-        #print('message sent')
-
-    # close connection
-    #if cv.waitKey(1) & 0xFF == ord('q'):
-       # break
+    result = (response.json())
+    try:
+        action = (result.get('predictions')[0]).get('class')
+        print(action)
+        if action == 'sit':
+            rc,png = cv.imencode('.png', image)
+            msg = png.tobytes()
+            client.publish(MQTT_TOPIC, msg, qos=1, retain = False)
+    except IndexError:
+        pass
 
 time.sleep(1)
 
