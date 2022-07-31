@@ -27,7 +27,7 @@ MQTT_HOST="mosquitto-service"
 MQTT_PORT=1883
 MQTT_TOPIC = "dogdetect/images"
 
-cap = cv.VideoCapture(0)
+cap = cv2.VideoCapture(0)
 
 #from client connections pyton -steves internet guide
 def on_log(client, userdata, level, buf):
@@ -233,7 +233,7 @@ def run(
         LOGGER.info(f'{s}Done. ({t3 - t2:.3f}s)')
         print('EVALUATION', s)
         ret, frame = cap.read()
-        rc,png = cv.imencode('.png', image)
+        rc,png = cv2.imencode('.png', im0)
         msg = png.tobytes()
         client.publish(MQTT_TOPIC, msg, qos=1, retain = False)
 
