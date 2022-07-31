@@ -30,4 +30,4 @@ COPY best.pt /usr/src/app/yolov5/best.pt
 CMD ["export", "DISPLAY=:0"]
 CMD ["export", "QT_DEBUG_PLUGINS=1"]
 CMD ["xhost", "+local:root"]
-CMD ["python3","detect.py", "--weights", "best.pt", "--img", "416", "--conf", "0.1"]
+CMD ["python3","detect.py", "--weights", "best.pt", "--conf", "0.1", "--source", "0"]
