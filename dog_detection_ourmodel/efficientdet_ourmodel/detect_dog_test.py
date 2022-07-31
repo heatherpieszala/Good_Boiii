@@ -196,32 +196,6 @@ while(True):
 
             plt.imshow(ori_imgs[i])
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     #input_img = get_preprocessed_img(frame)
     #image_label = get_imagenet_labels("classes.csv")
 
