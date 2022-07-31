@@ -22,6 +22,8 @@ from utils.torch_utils import select_device, time_sync
 
 import paho.mqtt.client as mqtt
 import time
+import requests
+import io
 
 @torch.no_grad()
 def run(
@@ -92,7 +94,6 @@ def run(
         print("log: ", buf)
 
     def on_disconnect(client, userdata, rc):
-        logging.info("disconnecting reason  "  +str(rc))
         client.connected_flag=False
     # client.disconnect_flag=True
 
@@ -231,7 +232,6 @@ def run(
 
         # Print time (inference-only)
         LOGGER.info(f'{s}Done. ({t3 - t2:.3f}s)')
-        print('EVALUATION', s)
 
         ret, frame = cap.read()
         rc,png = cv2.imencode('.png', im0)
