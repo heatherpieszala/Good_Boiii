@@ -28,4 +28,13 @@ RUN pip3 install git+https://github.com/cocodataset/cocoapi.git#subdirectory=Pyt
 # RUN pip3 install seaborn
 RUN pip3 install -U pip
 RUN pip list
-RUN pip3 install -r requirements.txt
+RUN pip install webcolors
+#RUN pip3 install -r requirements.txt
+
+COPY dog_detect_yolo.py /usr/src/app/Yet-Another-EfficientDet-Pytorch/detect_eff.py
+COPY best.pt /usr/src/app/Yet-Another-EfficientDet-Pytorch/best.pth
+
+CMD ["export", "DISPLAY=:0"]
+CMD ["export", "QT_DEBUG_PLUGINS=1"]
+CMD ["xhost", "+local:root"]
+CMD ["python3","detect_eff.py"]
