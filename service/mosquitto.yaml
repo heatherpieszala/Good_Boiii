@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: mosquitto
-        image: hpiesz/mosquitto:v1
+        image: mosquitto:v1
         ports:
         - containerPort: 1883
