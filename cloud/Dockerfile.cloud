@@ -19,4 +19,4 @@ COPY cloud_listener.py .
 
 #CMD ["export", "DISPLAY=:0"]
 #CMD ["xhost", "+local:root]
-CMD ["python3","cloud_listener.py"]
+CMD ["python3","dog_cloud.py"]
