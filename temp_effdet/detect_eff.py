@@ -27,7 +27,7 @@ use_float16 = False
 cudnn.fastest = True
 cudnn.benchmark = True
 
-obj_list = ['sit', 'other']
+obj_list = ['other', 'sit']
 
 # tf bilinear interpolation is different from any other's, just make do
 input_sizes = [512, 640, 768, 896, 1024, 1280, 1280, 1536, 1536]
@@ -103,14 +103,3 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
-
-docker build -f effdet.Dockerfile -t yet_another .
-docker run -e DISPLAY=$DISPLAY --privileged -v /tmp:/tmp -t yet_another
-
-separate terminal copy the detect.py and the .pth file into the docker container
-
-path same as the yolo: usr/src/app/Yet-Another-EfficientDet-Pytorch
-
-pip install webcolors
-
-python3 detect.py
