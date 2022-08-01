@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mosquitto-mf-deployment
+  name: mosquitto-mf
 spec:
   selector:
     matchLabels:
@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: mosquitto-mf
-        image: rishikap/hw3:msgForwarder
+        image: mosquitto-mf:v1
         ports:
         - containerPort: 1883
