@@ -46,8 +46,8 @@ For this, we connect our MQTTlistener within our mosquitto service (the first pi
 
 Navigate to `mqttMsgForwarder` and run the following commands.
 ```
-docker build -t listener:v1 -f Dockerfile.listener .
-kubectl apply -f listener.yaml
+docker build -t mosquitto-mf:v1 -f Dockerfile .
+kubectl apply -f mf.yaml
 
 ```
 For both the publisher and forwarder, logging is built into the files.  
