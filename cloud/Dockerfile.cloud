@@ -15,8 +15,8 @@ RUN pip3 install paho-mqtt
 RUN pip3 install opencv-contrib-python
 RUN pip3 install opencv-python
 RUN pip3 install boto3
-COPY cloud_listener.py .
+COPY dog_cloud.py .
 
 #CMD ["export", "DISPLAY=:0"]
 #CMD ["xhost", "+local:root]
-CMD ["python3","cloud_listener.py"]
+CMD ["python3","dog_cloud.py"]

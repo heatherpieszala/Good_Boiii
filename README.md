@@ -29,7 +29,7 @@ A deployment is then built for the dog detector and connected to the mosquito se
 Navigate to `dog_detection_roboflow` and run the following commands.  We now have the piece of our pipeline that captures the dog sitting.
 ```
 docker build -t dogcam:v1 -f Dockerfile.dogdetect .
-kubectl apply -f dog_detector.yaml
+kubectl apply -f dog_detect.yaml
 ```
 
 #### To Use Our Custom Dog Detector
@@ -37,7 +37,7 @@ We tried various models for inferencing on the Jetson device.  The first set-up 
 To run this piece, navigate to the folder `dog_detection_ourmodel/yolov5_ourmodel` and run the following commands:
 ```
 docker build -t dogcam:v1 -f Dockerfile.yolov5 .
-kubectl apply -f dog_detector.yaml
+kubectl apply -f dog_detect.yaml
 ```
 
 ### Forwarder
@@ -46,8 +46,8 @@ For this, we connect our MQTTlistener within our mosquitto service (the first pi
 
 Navigate to `mqttMsgForwarder` and run the following commands.
 ```
-docker build -t listener:v1 -f Dockerfile.listener .
-kubectl apply -f listener.yaml
+docker build -t mosquitto-mf:v1 -f Dockerfile .
+kubectl apply -f mf.yaml
 
 ```
 For both the publisher and forwarder, logging is built into the files.  
