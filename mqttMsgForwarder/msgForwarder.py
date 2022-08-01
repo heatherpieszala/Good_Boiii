@@ -4,8 +4,8 @@ LOCAL_MQTT_HOST = "mosquitto-service"
 LOCAL_MQTT_PORT = 1883
 LOCAL_MQTT_TOPIC = 'dogdetect/images'
 REMOTE_MQTT_TOPIC = "dogcapture/images"
-REMOTE_MQTT_HOST = "172.31.7.32"
-REMOTE_MQTT_PORT = 30018
+REMOTE_MQTT_HOST = "54.176.228.235"
+REMOTE_MQTT_PORT = 32111
 
 def on_connect_local(local_client, userdata, flags, rc):
     print("connected to local broker with rc: " + str(rc))
