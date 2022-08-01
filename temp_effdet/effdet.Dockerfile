@@ -31,8 +31,8 @@ RUN pip list
 RUN pip install webcolors
 #RUN pip3 install -r requirements.txt
 
-COPY dog_detect_yolo.py /usr/src/app/Yet-Another-EfficientDet-Pytorch/detect_eff.py
-COPY best.pt /usr/src/app/Yet-Another-EfficientDet-Pytorch/best.pth
+COPY detect_eff.py /usr/src/app/Yet-Another-EfficientDet-Pytorch/detect_eff.py
+COPY best.pth /usr/src/app/Yet-Another-EfficientDet-Pytorch/best.pth
 
 CMD ["export", "DISPLAY=:0"]
 CMD ["export", "QT_DEBUG_PLUGINS=1"]

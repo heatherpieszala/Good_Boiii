@@ -35,7 +35,7 @@ input_size = input_sizes[compound_coef] if force_input_size is None else force_i
 
 # load model
 model = EfficientDetBackbone(compound_coef=compound_coef, num_classes=len(obj_list))
-model.load_state_dict(torch.load(f'efficientdet-d0_34_8100.pth'))
+model.load_state_dict(torch.load(f'best.pth'))
 model.requires_grad_(False)
 model.eval()
 
@@ -103,3 +103,14 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+
+docker build -f effdet.Dockerfile -t yet_another .
+docker run -e DISPLAY=$DISPLAY --privileged -v /tmp:/tmp -t yet_another
+
+separate terminal copy the detect.py and the .pth file into the docker container
+
+path same as the yolo: usr/src/app/Yet-Another-EfficientDet-Pytorch
+
+pip install webcolors
+
+python3 detect.py
