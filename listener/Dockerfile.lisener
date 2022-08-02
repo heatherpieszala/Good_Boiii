@@ -1,0 +1,11 @@
+FROM alpine:latest
+# this is needed to make sure we can see the log output
+ENV PYTHONUNBUFFERED=1
+WORKDIR /app
+RUN apk add --update --no-cache python3 py3-pip opencv
+RUN pip3 install paho-mqtt
+#RUN apk add mosquitto
+COPY listener.py /app
+
+CMD python3 listener.py
+

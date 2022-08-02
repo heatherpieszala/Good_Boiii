@@ -119,11 +119,11 @@ def run(
     client.loop_start()
 
     #connect to client
-    try:
-        client.connect(MQTT_HOST, MQTT_PORT, 60)
-    except:
-        print("can't connect")
-        sys.exit(1)
+    #try:
+    client.connect(MQTT_HOST, MQTT_PORT, 60)
+    #except:
+        #print("can't connect")
+        #sys.exit(1)
 
     while not client.connected_flag: #wait in loop
         print("waiting in loop")

@@ -1,11 +1,12 @@
 import paho.mqtt.client as mqtt
+import sys
 
 LOCAL_MQTT_HOST = "mosquitto-service"
 LOCAL_MQTT_PORT = 1883
 LOCAL_MQTT_TOPIC = 'dogdetect/images'
 REMOTE_MQTT_TOPIC = "dogcapture/images"
-REMOTE_MQTT_HOST = "54.176.228.235"
-REMOTE_MQTT_PORT = 32111
+REMOTE_MQTT_HOST = "54.82.52.69"
+REMOTE_MQTT_PORT = 30355
 
 def on_connect_local(local_client, userdata, flags, rc):
     print("connected to local broker with rc: " + str(rc))

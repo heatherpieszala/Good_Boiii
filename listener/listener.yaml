@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: listener
+spec:
+  selector:
+    matchLabels:
+      app: listener
+  replicas: 1 # tells deployment to run 1 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: listener
+    spec:
+      containers:
+      - name: listener
+        image: listener:v1
