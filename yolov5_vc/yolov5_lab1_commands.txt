@@ -1,7 +1,12 @@
-1. Git clone v3 class repo if you haven't already
+1. Git clone v3 class repo if you haven't already.
 2. Download weights (best.pt) from project repo
 3. Move weights to /v3/week01/lab
 4. cd /v3/week01/lab
+
+docker build -t yolov5 -f Dockerfile.yolov5 .
+xhost +
+MODEL=yolov5s.pt
+CAM=0
 
 (create docker container, same command from lab01 without --rm flag, has a command to gitclone yolov5)
 5. docker run -e DISPLAY=$DISPLAY --privileged -v /tmp:/tmp -ti yolov5

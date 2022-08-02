@@ -1,7 +1,15 @@
 # Good_Boiii
 
 ### Abstract
+
 Ever wonder what your dog is doing when you are not watching?  What about when you are not home?  You might say, I have a camera for that. However, does your camera know when your dog is misbehaving and encourage it to engage in positive behavior instead?  Most likely, it does not. You might also know your dog misbehaves when you leave the room though it is difficult to determine when, and therefore,difficult to successfully work on training it otherwise. That is what our team set out to do and why we wanted to do it.  However, with time constraints and limited access to negative dog behavior data, we decided to focus on the positive behavior portion of the pipeline first.  For the purposes of this analysis, positive behavior means: sit, lay, stand, and play. The following study outlines the approach taken to solve this problem.
+
+To do this, we investigated and trained models to determine a dog's actions (using yolov5s and efficientdet as our baselines), and then used the weights to inference on a Jetson device.  To properly execute the project, we collected a dataset of dogs depicting 120 breeds, and labeled them sitting or not sitting using Roboflow.  Roboflow also provided a model that we tried. After detecting the dog on the Jetson, and determining the dog's action using our model's weights, we sent the image to an s3 bucket on the cloud if the dog was sitting.  The real motivation behind this would be to have another device dispense a treat if the dog sits. This piece of the pipeline would call the dog away from "negative" behavior, tell it to engage in a positive action like "sit" (or to at least come to the camera), and then reward it for doing so.
+
+Here is an example image from the s3 with the final result.  For Roboflow, we only sent the image if the dog was identified as sitting.  Images for this pipeline piece stop after image #29: [https://dog-training-good-boiii.s3.us-west-1.amazonaws.com/dog-30.jpg](https://dog-training-good-boiii.s3.us-west-1.amazonaws.com/dog-30.jpg)
+
+Here is an example of an image from the yolov5 model pipeline. For this, we sent both images of "sit" and "other" to the bucket to simulate rewarding the dog for coming to the camera, away from its negative behavior: https://dog-training-good-boiii.s3.us-west-1.amazonaws.com/dog-149.jpg
+Even though it wasn't always extremely confident on what the dog was doing, our yolov5 inference turned out to be very good at detecting the dog, and then accurately labeling the appropriate behavior with at least a low degree of confidence.
 
 ## Running the Pipeline
 To run this, it is assumed that both docker and kubernetes are already installed on both a Jetson device and cloud VM, and that a cloud instance has already been provisioned.  As part of the Jetson set-up, we already had docker but had to install kubernetes.
