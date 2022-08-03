@@ -58,10 +58,10 @@ kubectl apply -f dog_detect.yaml
 In order to recognize if the dog is sitting and reward it, we pass along the message that sitting occured. We publish these messages to the cloud through the the MQTT message forwarder.
 For this, we connect our MQTTlistener within our mosquitto service (the first piece we set up).  This allows the application to send and receive messages locally.  To connect to the cloud, we will next build a broker image and kubernetes service and deployment for the broker in the cloud, and then connect to the node port of that service within our forwarder.  The node port and ip need to be specified in the python file we run in the listener docker container. 
 
-Navigate to `mqttMsgForwarder` and run the following commands.
+Navigate to `listener` and run the following commands.  Ensure that you update the nodeport and ip address in the listener.py.  The listener is our mqtt message Forwarder (mqttMsgForwarder).
 ```
-docker build -t mosquitto-mf:v1 -f Dockerfile .
-kubectl apply -f mf.yaml
+docker build -t listener:v1 -f Dockerfile.lisener .
+kubectl apply -f listener.yaml
 
 ```
 For both the publisher and forwarder, logging is built into the files.  
