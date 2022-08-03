@@ -12,7 +12,7 @@ To do this, we investigated and trained models to determine a dog's actions (usi
 Here is an example image from the s3 with the final result.  For Roboflow, we only sent the image if the dog was identified as sitting.  Images for this pipeline piece stop after image #29: [https://dog-training-good-boiii.s3.us-west-1.amazonaws.com/dog-30.jpg](https://dog-training-good-boiii.s3.us-west-1.amazonaws.com/dog-30.jpg)
 
 Here is an example of an image from the yolov5 model pipeline. For this, we also tried to send images of only "sit": https://yolo-model-results.s3.us-west-1.amazonaws.com/dog-582.jpg
-Even though it wasn't always extremely confident on what the dog was doing, our yolov5 inference turned out to be very good at detecting the dog, and then accurately labeling the appropriate behavior with at least a low degree of confidence.
+Our yolov5 inference turned out to be very good at detecting the dog, and then accurately labeling the appropriate behavior, with at least a low degree of confidence.
 
 ##### Architecture
 ![alt text](https://github.com/heatherpieszala/Good_Boiii/blob/main/architecture.png)
