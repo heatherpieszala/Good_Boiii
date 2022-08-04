@@ -1,0 +1,38 @@
+1. Git clone v3 class repo if you haven't already.
+2. Download weights (best.pt) from project repo
+3. Move weights to /v3/week01/lab
+4. cd /v3/week01/lab
+
+docker build -t yolov5 -f Dockerfile.yolov5 .
+xhost +
+MODEL=yolov5s.pt
+CAM=0
+
+(create docker container, same command from lab01 without --rm flag, has a command to gitclone yolov5)
+5. docker run -e DISPLAY=$DISPLAY --privileged -v /tmp:/tmp -ti yolov5
+
+(get docker container id in separate terminal window)
+6. docker ps 
+
+(weights are best.pt, copy them into the docker container)
+6. docker cp best.pt docker_container_id:/best.pt
+
+(move best.pt into the yolov5 directory)
+7. cd ../../../../
+8. mv best.pt usr/src/app/yolov5
+9. cd usr/src/app/yolov5
+
+(run main command to do inference)
+10. python3 detect.py --weights best.pt --source 0
+
+11. You'll probably get an error - most likely because the version of yolov5 the lab docker container clones is an older branch?
+I did 'git pull origin main', but if you just do 'git pull' there are multiple options/branches that you may want to try 
+
+12. If you did do 'git pull origin main', you'll probably need to re-install:
+pip3 install pandas
+pip3 install seaborn 
+pip3 install -r requirements.txt
+
+
+(run main command again - may take a while.)
+13. python3 detect.py --weights best.pt --source 0
