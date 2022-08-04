@@ -85,3 +85,6 @@ Navigate to the `cloud` folder and run the following commands.
 docker build -t cloud:v1 -f Dockerfile.cloud .
 kubectl apply -f cloud_deployment.yaml
 ```
+
+### Final Output
+![alt text](https://github.com/heatherpieszala/Good_Boiii/blob/main/sage_example.jpg)
