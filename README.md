@@ -1,4 +1,4 @@
-# Good_Boiii
+# Good Boiii
 
 ### Abstract
 
@@ -92,3 +92,7 @@ https://yolo-model-results.s3.us-west-1.amazonaws.com/dog-582.jpg
 ![alt text](https://github.com/heatherpieszala/Good_Boiii/blob/main/sage_example.jpg)
 
 ![alt text](https://github.com/heatherpieszala/Good_Boiii/blob/main/sage-pipeline.jpg)
+
+
+### Additional Details
+Please review the associated paper W251_Final_Project_Good_Boiiii.pdf above.
