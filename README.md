@@ -86,6 +86,8 @@ docker build -t cloud:v1 -f Dockerfile.cloud .
 kubectl apply -f cloud_deployment.yaml
 ```
 
-### Final Output Example
+### Final Output Examples
 https://yolo-model-results.s3.us-west-1.amazonaws.com/dog-582.jpg
 ![alt text](https://github.com/heatherpieszala/Good_Boiii/blob/main/sage_example.jpg)
+
+![alt text(https://github.com/heatherpieszala/Good_Boiii/blob/main/sage-pipeline.jpg)
