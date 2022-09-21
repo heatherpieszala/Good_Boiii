@@ -87,6 +87,7 @@ kubectl apply -f cloud_deployment.yaml
 ```
 
 ### Final Output Examples
+The model had never seen this specific dog during training.
 https://yolo-model-results.s3.us-west-1.amazonaws.com/dog-582.jpg
 ![alt text](https://github.com/heatherpieszala/Good_Boiii/blob/main/sage_example.jpg)
 
